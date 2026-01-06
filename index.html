@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expertenstandard Ernährungsmanagement - Premium Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        
+        /* Hero Header mit Animation */
+        .hero-header {
+            position: relative;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            color: white;
+            padding: 80px 40px 60px;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-icon {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .hero-icon svg {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .hero-header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.35em;
+            opacity: 0.95;
+            font-weight: 300;
+            max-width: 950px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        
+        .author-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 15px 35px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.4);
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .author-badge:hover {
+            background: rgba(255,255,255,0.35);
+            transform: scale(1.05);
+        }
+        
+        /* Meta Info Cards */
+        .meta-section {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 40px;
+        }
+        
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .meta-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .meta-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .meta-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .meta-card h3 {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .meta-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 60px 40px;
+        }
+        
+        /* Ziel Box mit Grafik */
+        .ziel-section {
+            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ziel-section::before {
+            content: '🎯';
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            font-size: 200px;
+            opacity: 0.1;
+        }
+        
+        .ziel-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ziel-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .ziel-section p {
+            font-size: 1.2em;
+            line-height: 1.9;
+        }
+        
+        /* Phase Cards mit Nummern und Icons */
+        .phase-section {
+            margin-bottom: 60px;
+        }
+        
+        .phase-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .phase-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+            border-radius: 2px;
+        }
+        
+        .phases-container {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .phase-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 2px solid #f0f0f0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3498db, #9b59b6);
+        }
+        
+        .phase-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            border-color: #3498db;
+        }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .phase-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            flex-shrink: 0;
+        }
+        
+        .phase-card h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            flex-grow: 1;
+        }
+        
+        .phase-description {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .phase-details {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .phase-details h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .phase-details h4::before {
+            content: '▸';
+            color: #3498db;
+            font-size: 1.3em;
+        }
+        
+        .phase-details ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .phase-details li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        
+        .phase-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        /* Highlight Boxen */
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .highlight-box h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .highlight-box p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        /* Zusammenfassung Box */
+        .summary-box {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .summary-box::before {
+            content: '✨';
+            position: absolute;
+            right: -30px;
+            bottom: -30px;
+            font-size: 250px;
+            opacity: 0.1;
+        }
+        
+        .summary-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .summary-box h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .summary-box p {
+            font-size: 1.25em;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+        
+        .summary-emphasis {
+            font-weight: 600;
+            font-size: 1.3em;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            border-left: 5px solid white;
+        }
+        
+        /* Team-Koordination Visualisierung */
+        .team-section {
+            background: #f8f9fa;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .team-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #9b59b6;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(155, 89, 182, 0.3);
+        }
+        
+        .team-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.8em;
+        }
+        
+        .team-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .team-card p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+        
+        .footer-highlight {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-header {
+                padding: 50px 20px 40px;
+            }
+            
+            .hero-header h1 {
+                font-size: 2em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 40px 20px;
+            }
+            
+            .phase-card {
+                padding: 25px;
+            }
+            
+            .phase-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .meta-section,
+            .ziel-section,
+            .summary-box,
+            .team-section {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .phase-card,
+            .team-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Header -->
+        <div class="hero-header">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#e8f5e9"/>
+                        <path d="M2 17L12 22L22 17" stroke="#2ecc71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="#f39c12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h1>Expertenstandard Ernährungsmanagement</h1>
+                <p class="hero-subtitle">Praxisorientierte Zusammenfassung der Kernaussagen DNQP Expertenstandards von Arne Domachofski</p>
+                <div class="author-badge">
+                    📚 Professionelle Praxiszusammenfassung
+                </div>
+            </div>
+        </div>
+        
+        <!-- Meta Information Cards -->
+        <div class="meta-section">
+            <div class="meta-grid">
+                <div class="meta-card">
+                    <div class="meta-card-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19Z"/>
+                            <path d="M7 10H9V17H7V10ZM11 7H13V17H11V7ZM15 13H17V17H15V13Z"/>
+                        </svg>
+                    </div>
+                    <h3>Herausgeber</h3>
+                    <p>Deutsches Netzwerk für Qualitätsentwicklung in der Pflege (DNQP)</p>
+                </div>
+                
+                <div class="meta-card">
+                    <div class="meta-card-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M19 4H5C3.9 4 3 4.9 3 6V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V9H19V20Z"/>
+                            <circle cx="12" cy="14" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Aktuelle Version</h3>
+                    <p>1. Aktualisierung Januar 2017</p>
+                </div>
+                
+                <div class="meta-card">
+                    <div class="meta-card-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"/>
+                            <path d="M12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"/>
+                        </svg>
+                    </div>
+                    <h3>Vollständiger Titel</h3>
+                    <p>Ernährungsmanagement zur Sicherung und Förderung der oralen Ernährung in der Pflege</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Ziel Section -->
+            <div class="ziel-section">
+                <div class="ziel-content">
+                    <h2>🎯 Hauptziel des Standards</h2>
+                    <p>Die Expertenstandards zum „Ernährungsmanagement zur Sicherung und Förderung der oralen Ernährung in der Pflege" haben das Ziel, <strong>Mangelernährung bei pflegebedürftigen Menschen frühzeitig zu erkennen und professionell zu verhindern</strong>.</p>
+                </div>
+            </div>
+            
+            <!-- Die 6 Phasen -->
+            <div class="phase-section">
+                <h2 class="phase-title">Die 6 Kernphasen des Pflegeprozesses</h2>
+                
+                <div class="phases-container">
+                    <!-- Phase 1 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">1</div>
+                            <h3>Systematisches Screening (Erkennung)</h3>
+                        </div>
+                        <p class="phase-description">
+                            Der Standard legt fest, dass bei jedem Patienten oder Bewohner zu Beginn der Pflege (und danach in regelmäßigen Abständen) ein Screening auf das Risiko einer Mangelernährung durchgeführt werden muss.
+                        </p>
+                        <div class="phase-details">
+                            <h4>Kriterien für das Screening</h4>
+                            <ul>
+                                <li>Gewichtsverlust in letzter Zeit</li>
+                                <li>Auffällig niedriger BMI</li>
+                                <li>Verminderte Nahrungsaufnahme</li>
+                            </ul>
+                            <h4 style="margin-top: 20px;">Ziel</h4>
+                            <ul>
+                                <li>Identifikation von Risikogruppen, bevor gesundheitliche Folgeschäden auftreten</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 2 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">2</div>
+                            <h3>Vertiefendes Assessment (Ursachenforschung)</h3>
+                        </div>
+                        <p class="phase-description">
+                            Besteht ein Risiko, reicht ein bloßes Wiegen nicht aus. Es muss analysiert werden, <strong>warum</strong> die Person nicht ausreichend isst.
+                        </p>
+                        <div class="phase-details">
+                            <h4>Mögliche Faktoren</h4>
+                            <ul>
+                                <li><strong>Physische Probleme:</strong> Kau-/Schluckstörungen, Schmerzen</li>
+                                <li><strong>Kognitive Einschränkungen:</strong> Vergessen zu essen, Demenz</li>
+                                <li><strong>Psychische Faktoren:</strong> Depression, Appetitlosigkeit</li>
+                                <li><strong>Umgebungsfaktoren:</strong> Unangenehme Atmosphäre, unpassende Essenszeiten</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 3 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">3</div>
+                            <h3>Individuelle Maßnahmenplanung</h3>
+                        </div>
+                        <p class="phase-description">
+                            Die Maßnahmen müssen individuell und gemeinsam mit dem Betroffenen (oder Angehörigen) geplant werden. <strong>Priorität hat immer die orale Ernährung.</strong>
+                        </p>
+                        <div class="phase-details">
+                            <h4>Planungsaspekte</h4>
+                            <ul>
+                                <li><strong>Essensbiografie:</strong> Was mag die Person? Welche Gewohnheiten hat sie?</li>
+                                <li><strong>Hilfsmittel:</strong> Einsatz von speziellem Besteck oder Tellern</li>
+                                <li><strong>Anreichern:</strong> Speisen kalorisch aufwerten (z.B. mit Sahne oder hochwertigen Ölen), anstatt sofort auf Trinknahrung umzusteigen</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 4 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">4</div>
+                            <h3>Umgebungsgestaltung und Unterstützung</h3>
+                        </div>
+                        <p class="phase-description">
+                            Essen ist ein soziales Ereignis. Der Standard betont die Bedeutung der Atmosphäre und pflegerischen Begleitung.
+                        </p>
+                        <div class="phase-details">
+                            <h4>Wichtige Elemente</h4>
+                            <ul>
+                                <li><strong>Angenehme Atmosphäre:</strong> Ruhe, Sauberkeit und ansprechende Anrichtung der Speisen</li>
+                                <li><strong>Pflegerische Unterstützung:</strong> Unterstützung beim Schneiden, Anreichen von Essen oder einfach nur Motivation und Begleitung während der Mahlzeit</li>
+                                <li><strong>Autonomie:</strong> Die Selbstständigkeit soll so lange wie möglich erhalten bleiben (z.B. Fingerfood bei Demenz)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 5 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">5</div>
+                            <h3>Koordination und Kontinuität</h3>
+                        </div>
+                        <p class="phase-description">
+                            Ernährungsmanagement ist eine <strong>Teamaufgabe</strong>. Es bedarf einer engen Absprache zwischen allen Beteiligten.
+                        </p>
+                        <div class="phase-details">
+                            <h4>Beteiligte Berufsgruppen</h4>
+                            <ul>
+                                <li>Pflegekräften und Hauswirtschaft (Küche)</li>
+                                <li>Ärzten, Logopäden und Diätassistenten</li>
+                                <li>Angehörigen</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 6 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">6</div>
+                            <h3>Evaluation (Überprüfung)</h3>
+                        </div>
+                        <p class="phase-description">
+                            Der Erfolg der Maßnahmen muss regelmäßig überprüft werden.
+                        </p>
+                        <div class="phase-details">
+                            <h4>Kontinuierliche Anpassung</h4>
+                            <ul>
+                                <li>Wenn das Gewicht weiter sinkt oder die Nahrungsaufnahme nicht steigt, muss die Planung angepasst werden</li>
+                                <li>Regelmäßige Dokumentation und Evaluation sind essentiell</li>
+                                <li>Flexible Reaktion auf Veränderungen im Zustand des Bewohners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Koordination Visualisierung -->
+            <div class="team-section">
+                <h2 class="phase-title">Interdisziplinäre Zusammenarbeit</h2>
+                <p style="text-align: center; font-size: 1.15em; color: #666; max-width: 800px; margin: 0 auto 30px;">
+                    Erfolgreiche Ernährungsversorgung erfordert die enge Zusammenarbeit aller beteiligten Berufsgruppen
+                </p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-icon">👨‍⚕️</div>
+                        <h4>Pflegekräfte</h4>
+                        <p>Screening, Assessment, Essensunterstützung, Dokumentation</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-icon">👨‍🍳</div>
+                        <h4>Küche / Hauswirtschaft</h4>
+                        <p>Speisenzubereitung, Anreicherung, individuelle Anpassung</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-icon">👨‍⚕️</div>
+                        <h4>Ärzte</h4>
+                        <p>Medizinische Diagnostik, Verordnungen, Therapieplanung</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-icon">🗣️</div>
+                        <h4>Logopäden</h4>
+                        <p>Schluckdiagnostik, Therapie bei Dysphagie</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-icon">🥗</div>
+                        <h4>Diätassistenten</h4>
+                        <p>Ernährungsberatung, Speiseplangestaltung</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-icon">👨‍👩‍👧</div>
+                        <h4>Angehörige</h4>
+                        <p>Information über Vorlieben, Unterstützung, Feedback</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Zentrale Botschaft -->
+            <div class="summary-box">
+                <div class="summary-content">
+                    <h3>✨ Die zentrale Botschaft des Standards</h3>
+                    <p>
+                        Der Standard fordert einen Paradigmenwechsel: <strong>Weg von einer rein „satten" hin zu einer genussvollen und bedarfsgerechten Ernährung</strong>, die die Lebensqualität und Selbstbestimmung in den Mittelpunkt stellt.
+                    </p>
+                    <div class="summary-emphasis">
+                        Es geht nicht nur darum, dass Menschen essen – sondern dass sie mit Freude, Würde und entsprechend ihren individuellen Bedürfnissen essen können.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Highlight Box -->
+            <div class="highlight-box">
+                <h4>💡 Wichtig zu beachten</h4>
+                <p>
+                    Die Implementierung des Expertenstandards erfordert nicht nur fachliches Wissen, sondern auch eine Veränderung der Haltung: Ernährung ist mehr als Nahrungsaufnahme – sie ist ein Stück Lebensqualität, soziale Teilhabe und Ausdruck von Würde und Selbstbestimmung.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <p class="footer-highlight">Praxiszusammenfassung für interne Schulungszwecke</p>
+                <p><strong>Erstellt von: Arne Domachofski</strong></p>
+                <p>Basierend auf dem DNQP Expertenstandard Ernährungsmanagement, 1. Aktualisierung 2017</p>
+                <div class="copyright">
+                    <p>Copyright November 2025 | Alle Rechte vorbehalten</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
